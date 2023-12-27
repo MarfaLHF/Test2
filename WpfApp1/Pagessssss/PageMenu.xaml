@@ -1,0 +1,26 @@
+﻿<Page x:Class="WpfApp1.Pagessssss.PageMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pagessssss"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageMenu">
+
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                    <Button Height="40" Margin="10" Click="Button_Click">Пользователь</Button>
+                    <Button Height="40" Margin="10" Click="Button_Click_1">Пользователь +</Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,39 @@
+﻿version: '3.9'
+
+networks:
+  api-network:
+    driver: bridge
+
+services:
+  app:
+    container_name: api_var1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - api-network
+    depends_on:
+      - db
+    environment:
+      - ConnectionStrings__TestContext=Server=mssql_db;Database=Test2DB;User Id=login;Password=login;Encrypt=False;
+
+  db:
+    container_name: mssql_db
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      SA_PASSWORD: YourPasswordHere
+      ACCEPT_EULA: Y
+      MSSQL_DB_NAME: Test2DB
+      MSSQL_USER: login
+      MSSQL_PASSWORD: login
+    ports:
+      - "1433:1433"
+    networks:
+      - api-network
+    volumes:
+      - ./mssql_data:/var/opt/mssql
+
+volumes:
+  mssql_data:
